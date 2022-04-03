@@ -1,0 +1,80 @@
+CRITICAL - 2022-04-03 08:05:44 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2022-04-03 08:05:45 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2022-04-03 08:05:47 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2022-04-03 08:05:49 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2022-04-03 08:06:32 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2022-04-03 08:06:41 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#2 {main}
+ERROR - 2022-04-03 01:08:14 --> Table 'crudcodeigniter.personas' doesn't exist
+CRITICAL - 2022-04-03 01:08:14 --> Table 'crudcodeigniter.personas' doesn't exist
+#0 C:\xampp\htdocs\cursoCodeigniter\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT * FROM p...', 0)
+#1 C:\xampp\htdocs\cursoCodeigniter\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM p...')
+#2 C:\xampp\htdocs\cursoCodeigniter\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM p...')
+#3 C:\xampp\htdocs\cursoCodeigniter\app\Models\CrudModel.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM p...')
+#4 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(17): App\Models\CrudModel->listarNombres()
+#5 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->index()
+#6 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#7 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-04-03 01:33:10 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-04-03 01:33:10 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\cursoCodeigniter\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\app\Models\CrudModel.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM p...')
+#2 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(17): App\Models\CrudModel->listarNombres()
+#3 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-04-03 07:26:08 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-04-03 07:26:08 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\cursoCodeigniter\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\app\Models\CrudModel.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM p...')
+#2 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(17): App\Models\CrudModel->listarNombres()
+#3 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-04-03 07:26:18 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-04-03 07:26:18 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\cursoCodeigniter\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\app\Models\CrudModel.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM p...')
+#2 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(17): App\Models\CrudModel->listarNombres()
+#3 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-04-03 07:26:34 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-04-03 07:26:34 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\cursoCodeigniter\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\cursoCodeigniter\app\Models\CrudModel.php(13): CodeIgniter\Database\BaseConnection->query('SELECT * FROM p...')
+#2 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(17): App\Models\CrudModel->listarNombres()
+#3 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

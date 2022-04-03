@@ -23,8 +23,9 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/codeigniter/public/';
-
+    public $baseURL = 'http://localhost/cursoCodeigniter/public/';
+    // public $baseURL = 'http://demo.localhost/cursoCodeigniter/public/';
+    
     /**
      * --------------------------------------------------------------------------
      * Index File
