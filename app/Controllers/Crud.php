@@ -8,4 +8,19 @@ class Crud extends BaseController
     {
         return view('listado');
     }
+
+    public function crear() {
+
+    }
+
+    public function actualizar() {
+
+    }
+
+    public function eliminar() {
+
+    }
+
+    
+    
 }

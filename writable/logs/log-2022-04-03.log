@@ -76,3 +76,9 @@ CRITICAL - 2022-04-03 03:00:44 --> The framework needs the following extension(s
 #2 C:\xampp\htdocs\codeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
 #3 C:\xampp\htdocs\codeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
 #4 {main}
+CRITICAL - 2022-04-03 03:37:56 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\cursoCodeigniter\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\cursoCodeigniter\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
