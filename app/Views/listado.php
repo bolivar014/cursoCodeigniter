@@ -225,7 +225,7 @@
                 setTimeout(() => {
                   location.reload();
                 }, 2000);
-              } else {
+              } else if(respuesta.mensaje == 0) {
                 // Mensaje en caso de error al crear cli
                 Swal.fire({
                   icon: 'error',
