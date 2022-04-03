@@ -278,10 +278,6 @@
           showConfirmButton: false,
           timer: 1500
         })
-      } else if(mensaje == 1) {
-       
-      } else if(mensaje == 0) {
-       
       }
     </script>
   </body>
