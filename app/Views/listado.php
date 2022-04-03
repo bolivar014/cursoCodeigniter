@@ -10,30 +10,12 @@
   </head>
   <body>
     <div class="container">
-      <h1>Listar clientes</h1>
-      <div class="row">
-        <div class="col-sm-12">
-          <form method="POST" action="<?php echo base_url().'/crear' ?>" enctype="multipart/form-data">
-            <label for="nombre">Documento</label>
-            <input type="text" id="doc_cantante" name="doc_cantante" class="form-control" required>
-            <label for="nombre">Nombre Completo</label>
-            <input type="text" id="nombre_completo" name="nombre_completo" class="form-control" required>
-            <label for="nombre">Nombre Artistico</label>
-            <input type="text" id="nombre_artistico" name="nombre_artistico" class="form-control" required>
-            <label for="nombre">Fecha Nac</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" required>
-            <label for="nombre">Pais Origen</label>
-            <input type="text" id="pais_vive" name="pais_vive" class="form-control" required>
-            <label for="nombre">Ciudad Vive</label>
-            <input type="text" id="ciudad_vive" name="ciudad_vive" class="form-control" required>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Agregar Cantante
+      </button>
 
-            <br>
-            
-            <button class="btn btn-success">Guardar</button>
-          </form>
-        </div>
-      </div>
-
+      <h1>Listar Cantante</h1>
+      
       <div class="row">
         <div class="col-sm-12">
           <div class="table table-responsive">
@@ -71,6 +53,40 @@
                 <?php } ?>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form method="POST" action="<?php echo base_url().'/crear' ?>" enctype="multipart/form-data">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registrar cantante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <label for="nombre">Documento</label>
+                <input type="text" id="doc_cantante" name="doc_cantante" class="form-control" minlength="10" maxlength="10" required>
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre_completo" name="nombre_completo" class="form-control" minlength="10" maxlength="25" required>
+                <label for="nombre">Nombre Artistico</label>
+                <input type="text" id="nombre_artistico" name="nombre_artistico" class="form-control" minlength="10" maxlength="25" required>
+                <label for="nombre">Fecha Nac</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" required>
+                <label for="nombre">Pais Origen</label>
+                <input type="text" id="pais_vive" name="pais_vive" class="form-control" minlength="5" maxlength="25" required>
+                <label for="nombre">Ciudad Vive</label>
+                <input type="text" id="ciudad_vive" name="ciudad_vive" class="form-control" minlength="5" maxlength="25" required>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            
+            </form>
           </div>
         </div>
       </div>
