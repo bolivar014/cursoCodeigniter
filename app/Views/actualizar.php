@@ -1,3 +1,12 @@
+<?php 
+  $idCantante = $datos[0]['id_cant'];
+  $docCantante = $datos[0]['doc_cantante'];
+  $nombCantante = $datos[0]['nombre_completo'];
+  $nomArtCantante = $datos[0]['nombre_artistico'];
+  $fNCantante = $datos[0]['fecha_nacimiento'];
+  $paisCantante = $datos[0]['pais_vive'];
+  $viveCantante = $datos[0]['ciudad_vive'];
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -9,8 +18,31 @@
     <title>Actualizar datos</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container">
+      <h1>Actualización de cliente: <strong><?php echo ($nombCantante); ?></strong></h1>
+      <div class="row">
+        <div class="col-sm-12">
+          <form method="POST" action="<?php echo base_url().'/actualizar' ?>" enctype="multipart/form-data">
+          <input type="text" id="id_cant" name="id_cant" hidden="" value="<?php echo ($idCantante); ?>">
+            <label for="nombre">Documento</label>
+            <input type="text" id="doc_cantante" name="doc_cantante" class="form-control" value="<?php echo ($docCantante); ?>" required>
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre_completo" name="nombre_completo" class="form-control" value="<?php echo ($nombCantante); ?>" required>
+            <label for="nombre">Nombre Artistico</label>
+            <input type="text" id="nombre_artistico" name="nombre_artistico" class="form-control" value="<?php echo ($nomArtCantante); ?>" required>
+            <label for="nombre">Fecha Nac</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" value="<?php echo ($fNCantante); ?>" required>
+            <label for="nombre">Pais Origen</label>
+            <input type="text" id="pais_vive" name="pais_vive" class="form-control" value="<?php echo ($paisCantante); ?>" required>
+            <label for="nombre">Ciudad Vive</label>
+            <input type="text" id="ciudad_vive" name="ciudad_vive" class="form-control" value="<?php echo ($viveCantante); ?>" required>
 
+            <br>
+            
+            <button class="btn btn-success">Guardar</button>
+          </form>
+        </div>
+      </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

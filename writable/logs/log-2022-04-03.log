@@ -78,3 +78,17 @@ Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo 
 #5 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #6 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #7 {main}
+CRITICAL - 2022-04-03 08:25:15 --> Call to undefined function App\Models\where()
+#0 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(76): App\Models\CrudModel->obtenerPersona(Array)
+#1 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->obtenerPersona('1')
+#2 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-03 08:25:24 --> Call to undefined function App\Models\where()
+#0 C:\xampp\htdocs\cursoCodeigniter\app\Controllers\Crud.php(76): App\Models\CrudModel->obtenerPersona(Array)
+#1 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(832): App\Controllers\Crud->obtenerPersona('1')
+#2 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\cursoCodeigniter\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\cursoCodeigniter\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

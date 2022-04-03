@@ -25,4 +25,31 @@
             // Retornamos ID de la ultima inserción
             return $this->db->insertID();
         }
+
+        // Modelo para consultar datos de persona
+        public function obtenerPersona($data) {
+            // Creamos conexión a la tabla
+            $Nombres = $this->db->table('personas');
+
+            // Ejecutamos consulta
+            $Nombres->where($data);
+
+            // Retornamos el array de resultados
+            return $Nombres->get()->getResultArray();
+        }
+
+        // Modelo para Actualizar datos de persona
+        public function actualizar($data, $idNombre) {
+            // Creamos conexión a la tabla
+            $Nombres = $this->db->table('personas');
+
+            // generamos actualización de array data ordenadadesde el controlador 
+            $Nombres->set($data);
+
+            // Actualizamos los datos asociados al cliente
+            $Nombres->where('id_cant', $idNombre);
+
+            // Retornamos actualización
+            return $Nombres->update();
+        }
     }

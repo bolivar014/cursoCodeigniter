@@ -90,7 +90,20 @@
     <script type="text/javascript">
       let mensaje = '<?php echo ($mensaje); ?>';
 
-      if(mensaje == 1) {
+      if(mensaje == 3) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Se ha generado un error al actualizar el cliente'
+        })
+      } else if(mensaje == 2) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Cliente actualizado exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else if(mensaje == 1) {
         Swal.fire({
           icon: 'success',
           title: 'Cliente agregado exitosamente',
