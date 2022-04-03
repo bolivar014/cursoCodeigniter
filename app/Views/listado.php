@@ -33,6 +33,7 @@
           </form>
         </div>
       </div>
+
       <div class="row">
         <div class="col-sm-12">
           <div class="table table-responsive">
@@ -50,6 +51,25 @@
                   <th>ELIMINAR</th>
                 </tr>
               </thead>
+              <tbody>
+                <?php foreach($datos as $key) { ?>
+                  <tr>
+                    <td><?php echo ($key->id_cant); ?></td>
+                    <td><?php echo ($key->doc_cantante); ?></td>
+                    <td><?php echo ($key->nombre_completo); ?></td>
+                    <td><?php echo ($key->nombre_artistico); ?></td>
+                    <td><?php echo ($key->fecha_nacimiento); ?></td>
+                    <td><?php echo ($key->pais_vive); ?></td>
+                    <td><?php echo ($key->ciudad_vive); ?></td>
+                    <td>
+                      <a href="<?php echo base_url() . '/obtenerPersona/'.$key->id_cant ?>" class="btn btn-warning btn-small">Editar</a>
+                    </td>
+                    <td>
+                      <a href="<?php echo base_url() . '/' ?>" class="btn btn-danger btn-small">Eliminar</a>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
             </table>
           </div>
         </div>

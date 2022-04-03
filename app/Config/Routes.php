@@ -33,6 +33,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Crud::index');
 
+// Creamos route para edición de persona 
+$routes->get('/obtenerPersona/(:any)', 'Crud::obtenerPersona/$1');
+
+// Creamos Route para la creación de persona
+$routes->post('/crear', 'Crud::crear');
+
+// Creamos Route para Eliminación de persona
+$routes->get('/eliminar/(:any)', 'Crud::eliminar/$1');
+
+$routes->post('/actualizar', 'Crud::actualizar');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
