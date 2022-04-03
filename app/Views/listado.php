@@ -7,6 +7,26 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Vista Principal</title>
+    <style>
+        .has-error label.error {
+            color : #f33923 !important;
+            font-size : 11px !important;
+        }
+        .has-error .form-control {
+            border-color: #a94442 !important;
+        }
+        label.error {
+            color: #f33923!important;
+            font-size: 11px !important;
+        }
+        input.has-error,
+        select.has-error  {
+            border: solid 2px #a94442 !important;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -61,7 +81,7 @@
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <form method="POST" action="<?php echo base_url().'/crear' ?>" enctype="multipart/form-data">
+            <form method="POST" id="formCrear" name="formCrear" action="<?php echo base_url().'/crear' ?>" enctype="multipart/form-data" onsubmit="return false;">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Registrar cantante</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -101,9 +121,131 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- CDN SWEET ALERT -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script type="text/javascript">
+      // Eventos JQuery Validator
+      jQuery.extend(jQuery.validator.messages, {
+          required: "Este campo es obligatorio.",
+          remote: "Por favor, rellena este campo.",
+          email: "Por favor, escribe una direcci&oacute;n de correo v&aacute;lida",
+          url: "Por favor, escribe una URL v&aacute;lida.",
+          date: "Por favor, escribe una fecha v&aacute;lida.",
+          dateISO: "Por favor, escribe una fecha (ISO) v&aacute;lida.",
+          number: "Por favor, escribe un n&uacute;mero entero v&aacute;lido y sin espacios.",
+          digits: "Por favor, escribe s&oacute;lo d&iacute;­gitos.",
+          creditcard: "Por favor, escribe un n&uacute;mero de tarjeta v&aacute;lido.",
+          equalTo: "Por favor, escribe el mismo valor de nuevo.",
+          accept: "Por favor, escribe un valor con una extensi&oacute;n aceptada.",
+          maxlength: jQuery.validator.format("Por favor, no escribas m&aacute;s de {0} caracteres."),
+          minlength: jQuery.validator.format("Por favor, no escribas menos de {0} caracteres."),
+          rangelength: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
+          range: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1}."),
+          max: jQuery.validator.format("Por favor, escribe un valor menor o igual a {0}."),
+          min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
+      });
+      jQuery.validator.addMethod("filesize_max", function(value, element, param) {
+          var isOptional = this.optional(element),
+              file;
+          if(isOptional) {
+              return isOptional;
+          }
+          if ($(element).attr("type") === "file") {
+              if (element.files && element.files.length) {
+                  file = element.files[0];
+                  return ( file.size && file.size <= param ); 
+              }
+          }
+          return false;
+      }, "El archivo supera un peso de (47kb).");
+
+      // Valido todo tipo de formulario "form"
+      $('form').each(function() {
+          // Capturo formulario para verificar campos requeridos...
+          $(this).validate({
+              ignore: [],
+              highlight: function (input) {
+                  if($(input).parents('.form-group-sm').hasClass('formh')){
+                      $(input).parents('.form-group-sm').addClass('has-error has-feedback');
+                  } else {
+                      $(input).addClass('has-error has-feedback');
+                  }
+              },
+              unhighlight: function (input) {
+                  if($(input).parents('.form-group-sm').hasClass('formh')){
+                      $(input).parents('.form-group-sm').removeClass('has-error has-feedback');
+                  } else {
+                      $(input).removeClass('has-error has-feedback');
+                  }
+              },
+              errorPlacement: function (error, element) {
+                  if($(element).parents('.form-group-sm').hasClass('formh')){
+                      $(element).parents('.form-group-sm .col-sm-8').append(error);
+                  } else {
+                      $(element).parent().append(error);
+                  }
+              }
+          });
+      });
+      $("#formCrear").on('submit', function(e){
+          e.preventDefault();  //prevent form from submitting
+          var data = $("#formCrear").serializeArray();
+          if($(this).valid()){ 
+              crearCliente(data);
+          } else { 
+              // Cuando aÃºn no se ha terminado de llenar los campos
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Por favor, llenar los campos completamente'
+              })
+          }
+      });
+      
+      function crearCliente(data){
+        $.ajax({
+            url: '<?php echo base_url().'/crear' ?>',
+            type: 'POST',
+            dataType: 'json',
+            data: $("#formCrear").serializeArray(),
+            success: function(respuesta) {
+              // console.log('success V2');
+              // console.log(respuesta);
+              if(respuesta.mensaje == "1") {
+                // Mensaje en caso de confirmación al crear cli
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Cliente agregado exitosamente',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+
+                setTimeout(() => {
+                  location.reload();
+                }, 2000);
+              } else {
+                // Mensaje en caso de error al crear cli
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Se ha generado un error al crear el cliente'
+                })
+              }
+            },
+            error: function(err) {
+              // console.log('error V2');
+              // console.log(err);
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Se ha generado un error interno al crear el cliente'
+                })
+            }
+        })
+      }
+
       let mensaje = '<?php echo ($mensaje); ?>';
 
       if(mensaje == 5) {
@@ -137,20 +279,9 @@
           timer: 1500
         })
       } else if(mensaje == 1) {
-        // Mensaje en caso de confirmación al crear cli
-        Swal.fire({
-          icon: 'success',
-          title: 'Cliente agregado exitosamente',
-          showConfirmButton: false,
-          timer: 1500
-        })
+       
       } else if(mensaje == 0) {
-        // Mensaje en caso de error al crear cli
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Se ha generado un error al crear el cliente'
-        })
+       
       }
     </script>
   </body>

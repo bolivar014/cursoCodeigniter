@@ -48,11 +48,19 @@ class Crud extends BaseController
 
         if($respuesta > 0) {
             // En caso que sea una redirección exitosa, retornamos al index con un mensaje 1
-            return redirect()->to(base_url() . '/')->with('mensaje', '1');
-
+            // return redirect()->to(base_url() . '/')->with('mensaje', '1');
+            // return array('mensaje'=> '1');
+            $mensaje = 1;
+            // return $mensaje;
+            echo json_encode(array('mensaje' => '1'));
         } else {
             // En caso que sea una redirección exitosa, retornamos al index con un mensaje 0
-            return redirect()->to(base_url() . '/')->with('mensaje', '0');
+            // return redirect()->to(base_url() . '/')->with('mensaje', '0');
+            // return array('mensaje'=> '0');
+            
+            $mensaje = 0;
+            // return $mensaje;
+            echo json_encode(array('mensaje' => '0'));
         }
 
     }
