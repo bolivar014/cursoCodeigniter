@@ -52,4 +52,17 @@
             // Retornamos actualización
             return $Nombres->update();
         }
+
+        // Modelo para la eliminación del registro
+        public function eliminar($idNombre) {
+            // Creamos conexión a la tabla
+            $Nombres = $this->db->table('personas');
+
+            // Rastreamos los datos asociados al cliente
+            $Nombres->where('id_cant', $idNombre);
+
+            // Retornamos actualización
+            return $Nombres->delete();
+
+        }
     }

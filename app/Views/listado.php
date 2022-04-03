@@ -65,7 +65,7 @@
                       <a href="<?php echo base_url() . '/obtenerPersona/'.$key->id_cant ?>" class="btn btn-warning btn-small">Editar</a>
                     </td>
                     <td>
-                      <a href="<?php echo base_url() . '/' ?>" class="btn btn-danger btn-small">Eliminar</a>
+                      <a href="<?php echo base_url() . '/eliminar/'.$key->id_cant ?>" class="btn btn-danger btn-small">Eliminar</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -90,13 +90,30 @@
     <script type="text/javascript">
       let mensaje = '<?php echo ($mensaje); ?>';
 
-      if(mensaje == 3) {
+      if(mensaje == 5) {
+        // Mensaje en caso de error al eliminar cli
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Se ha generado un error al eliminar el cliente'
+        })
+      } else if(mensaje == 4) {
+        // Mensaje de confirmación al eliminar cli
+        Swal.fire({
+          icon: 'success',
+          title: 'Cliente eliminado exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else if(mensaje == 3) {
+        // Mensaje en caso de error al actualizar cli
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'Se ha generado un error al actualizar el cliente'
         })
       } else if(mensaje == 2) {
+        // Mensaje de confirmación al actualizar cli
         Swal.fire({
           icon: 'success',
           title: 'Cliente actualizado exitosamente',
@@ -104,6 +121,7 @@
           timer: 1500
         })
       } else if(mensaje == 1) {
+        // Mensaje en caso de confirmación al crear cli
         Swal.fire({
           icon: 'success',
           title: 'Cliente agregado exitosamente',
@@ -111,6 +129,7 @@
           timer: 1500
         })
       } else if(mensaje == 0) {
+        // Mensaje en caso de error al crear cli
         Swal.fire({
           icon: 'error',
           title: 'Oops...',

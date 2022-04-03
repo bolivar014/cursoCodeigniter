@@ -87,7 +87,21 @@ class Crud extends BaseController
     }
 
     public function eliminar($idNombre) {
+        // Retornamos el Modelo
+        $Crud = new CrudModel();
+        
+        // Obtenemos la respuesta desde el modelo con el dato a consultar
+        $respuesta = $Crud->eliminar($idNombre);
 
+        if($respuesta) {
+            // En caso que sea una redirección exitosa, retornamos al index con un mensaje 1
+            return redirect()->to(base_url() . '/')->with('mensaje', '4');
+
+        } else {
+            // En caso que sea una redirección exitosa, retornamos al index con un mensaje 0
+            return redirect()->to(base_url() . '/')->with('mensaje', '5');
+        }
+        
     }
 
     public function obtenerPersona($idNombre) {
