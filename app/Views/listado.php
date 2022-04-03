@@ -87,6 +87,23 @@
     -->
     <!-- CDN SWEET ALERT -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+      let mensaje = '<?php echo ($mensaje); ?>';
 
+      if(mensaje == 1) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Cliente agregado exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else if(mensaje == 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Se ha generado un error al crear el cliente'
+        })
+      }
+    </script>
   </body>
 </html>

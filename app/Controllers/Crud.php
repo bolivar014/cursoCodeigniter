@@ -13,12 +13,16 @@ class Crud extends BaseController
         // Retornamos el Modelo
         $Crud = new CrudModel();
 
+        // Creamos una variable mensaje con la respuesta de la redirección
+        $mensaje = session('mensaje');
+
         // datos Recibe el Objeto Crud del metodo ListarNombres
         $datos = $Crud->listarNombres();
 
         // Generamos array con los datos recibidos desde el modelo para así enviarlo hacía el front
         $data = [
-            "datos" => $datos
+            "datos" => $datos,
+            "mensaje" => $mensaje
         ];
 
         // Retornamos la vista con los datos
@@ -40,8 +44,18 @@ class Crud extends BaseController
         // Retornamos el Modelo
         $Crud = new CrudModel();
 
-        // 
-        echo $Crud->insertar($datos);
+        // Recupero el LOG de si se realizo la inserción en DB.
+        $respuesta = $Crud->insertar($datos);
+
+        if($respuesta > 0) {
+            // En caso que sea una redirección exitosa, retornamos al index con un mensaje 1
+            return redirect()->to(base_url() . '/')->with('mensaje', '1');
+
+        } else {
+            // En caso que sea una redirección exitosa, retornamos al index con un mensaje 0
+            return redirect()->to(base_url() . '/')->with('mensaje', '0');
+        }
+
     }
 
     public function actualizar() {
