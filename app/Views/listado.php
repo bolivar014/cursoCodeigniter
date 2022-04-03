@@ -29,12 +29,37 @@
     </style>
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
     <div class="container">
+      <br>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Agregar Cantante
       </button>
 
-      <h1>Listar Cantante</h1>
+      <br>
+      <br>
+
+      <h1>Lista de Cantantes</h1>
       
       <div class="row">
         <div class="col-sm-12">
@@ -68,6 +93,7 @@
                     </td>
                     <td>
                       <a href="<?php echo base_url() . '/eliminar/'.$key->id_cant ?>" class="btn btn-danger btn-small">Eliminar</a>
+                      <!-- <a href="#" data-id_cli="<?php echo ($key->id_cant) ?>" id="btnEliminarCli" name="btnEliminarCli" class="btn btn-danger btn-small">Eliminar</a> -->
                     </td>
                   </tr>
                 <?php } ?>
@@ -245,6 +271,54 @@
             }
         })
       }
+
+      $('#btnEliminarCli').on('click', function(e){
+        // console.log('llego al evento click del botón eliminar');
+        console.log($(this).attr('data-id_cli'));
+        let idEliminar = $(this).attr('data-id_cli');
+
+        $.ajax({
+            url: '<?php echo base_url().'/eliminar' ?>',
+            type: 'POST',
+            dataType: 'json',
+            data: $("#formCrear").serializeArray(),
+            success: function(respuesta) {
+              // console.log('success V2');
+              // console.log(respuesta);
+              if(respuesta.mensaje == "1") {
+                // Mensaje en caso de confirmación al crear cli
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Cliente agregado exitosamente',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+
+                setTimeout(() => {
+                  location.reload();
+                }, 2000);
+              } else if(respuesta.mensaje == 0) {
+                // Mensaje en caso de error al crear cli
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Se ha generado un error al crear el cliente'
+                })
+              }
+            },
+            error: function(err) {
+              // console.log('error V2');
+              // console.log(err);
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Se ha generado un error interno al crear el cliente'
+                })
+            }
+        })
+        // console.log(e);
+        // debugger;
+      });
 
       let mensaje = '<?php echo ($mensaje); ?>';
 
