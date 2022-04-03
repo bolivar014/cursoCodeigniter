@@ -13,7 +13,7 @@
       <h1>Listar clientes</h1>
       <div class="row">
         <div class="col-sm-12">
-          <form method="POST" action="<?php echo base_url() . '/crear' ?>">
+          <form method="POST" action="<?php echo base_url().'/crear' ?>" enctype="multipart/form-data">
             <label for="nombre">Documento</label>
             <input type="text" id="doc_cantante" name="doc_cantante" class="form-control" required>
             <label for="nombre">Nombre Completo</label>
@@ -29,7 +29,7 @@
 
             <br>
             
-            <button class="btn btn-success" type="submit">Guardar</button>
+            <button class="btn btn-success">Guardar</button>
           </form>
         </div>
       </div>

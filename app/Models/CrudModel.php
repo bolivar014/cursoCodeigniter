@@ -14,4 +14,15 @@
 
             return $Nombres->getResult();
         }
+
+        // Modelo para inserción de datos
+        public function insertar($datos) {
+            $Nombres = $this->db->table('personas');
+
+            // Inserción asociativo
+            $Nombres->insert($datos);
+        
+            // Retornamos ID de la ultima inserción
+            return $this->db->insertID();
+        }
     }
